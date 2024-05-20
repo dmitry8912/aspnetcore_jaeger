@@ -11,19 +11,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddOpenTelemetry().WithTracing(
-    t => t.AddAspNetCoreInstrumentation()
-    .AddSource("Controller")
-    .SetResourceBuilder(
-            ResourceBuilder.CreateDefault().AddService("WebApp")
-    )
-    .AddOtlpExporter(
-        o =>
-        {
-            o.Endpoint = new Uri("http://localhost:4317");
-        }
-    )
-);
+// builder.Services.AddOpenTelemetry().WithTracing(
+//     t => t.AddAspNetCoreInstrumentation()
+//     .AddSource("Controller")
+//     .SetResourceBuilder(
+//             ResourceBuilder.CreateDefault().AddService("WebApp")
+//     )
+//     .AddOtlpExporter(
+//         o =>
+//         {
+//             o.Endpoint = new Uri("http://localhost:4317");
+//         }
+//     ).AddConsoleExporter()
+// );
 
 var app = builder.Build();
 
